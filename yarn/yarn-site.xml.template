@@ -35,6 +35,16 @@
 	</property>
 
 	<property>
+        <name>yarn.nodemanager.pmem-check-enabled</name>
+        <value>false</value>
+    </property>
+
+    <property>
+        <name>yarn.nodemanager.vmem-check-enabled</name>
+        <value>false</value>
+    </property>
+
+	<property>
 		<name>yarn.scheduler.minimum-allocation-mb</name>
 		<value>128</value>
 		<description>Minimum limit of memory to allocate to each container request at the Resource Manager.</description>

@@ -24,13 +24,13 @@ COPY ssh_config /root/.ssh/config
 RUN chmod 600 /root/.ssh/config && chown root:root /root/.ssh/config
 
 # java
-RUN curl -LO 'http://download.oracle.com/otn-pub/java/jdk/7u71-b14/jdk-7u71-linux-x64.rpm' -H 'Cookie: oraclelicense=accept-securebackup-cookie' && \
-	rpm -i jdk-7u71-linux-x64.rpm && \
-	rm jdk-7u71-linux-x64.rpm
+RUN curl -LO 'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm' -H 'Cookie: oraclelicense=accept-securebackup-cookie' && \
+	rpm -i jdk-8u131-linux-x64.rpm && \
+	rm jdk-8u131-linux-x64.rpm
 
 ENV JAVA_HOME /usr/java/default
 
-RUN curl -s http://www.us.apache.org/dist/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz | tar -xz -C /usr/local/ && \
+RUN curl -LO 'https://archive.apache.org/dist/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz' && chmod 700 hadoop-2.7.1.tar.gz && tar -xvzf hadoop-2.7.1.tar.gz -C /usr/local/ && \
 	cd /usr/local && \
 	ln -s ./hadoop-2.7.1 hadoop
 
